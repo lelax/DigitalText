@@ -75,7 +75,7 @@
 
         <ol>
           <li><a href="index.html">Home</a></li>
-          <li>Our Conclusions</li>
+          <li>LDA Model</li>
         </ol>
         <h2>The Results of the research</h2>
 
@@ -84,65 +84,75 @@
 
     <section class="hero">
       <div class="container">
-        <h4>...and Future Directions</h4>
+        <h4>Understanding LDA Topic Modeling Output</h4>
         <div class="row">
           <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
         <p>
-          In this journey of exploration using Latent Dirichlet Allocation (LDA), the generated topics are the unravel some of the hidden semantic structures in a corpus. However, the actual results are extremely difficult to predict and probably won’t be what you wanted it to be, as witnessed in our current research. The model’s output topics, although thematically coherent and representative of underlying textual patterns, deviate from our initial expectations (or maybe better ‘hopes’) anchored on specific aspects of accessibility (such as physical, intellectual, economic, social, and cultural). Keywords and thematic structures related to these desired topics remained largely absent in the results. This results not in an extensive evaluation of the actual results, but a reflection on potential ways for refining and redirecting future investigations on this topic.</p>
-        <p>This research project, conducted as part of our master's course, has a limited scope and is constrained by academic timelines. Despite the unexpected outcomes in the LDA model outputs, our work hopefully provides a starting point for future research into the themes of accessibility within heritage contexts using text data. While we won't be continuing this work further as part of our studies, we would like to offer some options for refining the corpus and model as potential directions for further research.</p>
+          One of the most used visualization tools for LDA is the <a href="https://pypi.org/project/pyLDAvis/" target="_blank">PyLDAvis</a>.
+        This interactive tool transforms the abstract output of the model into a visual representation that is  both intuitive and powerful. <br>
+      <b>PyLDAvis facilitates a concrete view of our LDA model,</b> providing a comprehensive overview of how topics are distributed, which terms are most important within each topic, and even to some extend how topics relate to one another. By navigating the pyLDAvis chart, we have been able to get a better understanding of the individual topics and as the whole. 
+          Here below is an examplary image of the pyLDAvis tool of our model. 
+          As you can see it’s been separated into two parts: <b>a graph and the ‘Topic-Term Relevance Plot’. </b>
+          Before diving into both in more detail, a brief overview of what they represent. 
+          The graph on the left provides a bird’s-eye view of the LDA model. 
+          The circles presented are the 29 topics the model found in the corpus. 
+          As you can see there is one circle highlighted in red, this selected topic is being shown in the plot on the right. 
+          It provides an overview of the most relevant terms in that topic.</p>
         </div>
         <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
-          <img src="assets/img/Strada_provinciale _105PonteRomano.jpg" alt="stradaPatrimonioUnesco" class="img-fluid">
-          
+          <img src="assets/img/PyLDA.png" alt="" class="img-fluid">
+          <div>
+            <a href="https://github.com/Pablo751/DTLDA/tree/main" class="btn-get-started scrollto" target="_blank">Explore it Interactively Now</a>
+          </div>
         </div>
     </section>
 
     <section class="hero">
       <div class="container">
-        <h4>Revisitation of the Corpus</h4>
+        <h5>Distribution of Circles</h5>
         <div class="row">
           <div class="col-lg-12 mt-4 mb-tg-0 order-2 order-lg-1">
         <p>
-          Taking another look at the corpus might reveal some valuable insights. The topics that the LDA model creates are shaped by the text data it has been given. 
-          Therefore, a detailed check of both the training and application corpora is vital.
-          <ul>
-            <li>Content Suitability: Making sure the documents (more) talk about the accessibility topics we’re interested in. We might need to add more documents that focus on these topics.
-            </li>
-            <li>Language Use: Checking if there are other words or phrases that talk about our themes, which we might have missed the first time.
-            </li>
-            <li>Data Cleaning: Going over the initial steps like breaking down sentences into words, adjusting word forms, and removing common words to see if important words were accidentally removed.</p>
-            </li>
-            </ul>
-          </div>      
+          In the pyLDAvis visualization, the distribution of the circles int the graph are important to understand and can give valuable insights.
+          The distribution of circles on the pyLDAvis chart serves as a visual representation of the topics identified by our LDA model. Each circle represents a topic, and its position is not arbitrary; it is determined by two critical factors: relevance and prevalence.
+          </p>
+          <ol>
+            <li><b>Relevance:</b> The closer a circle is to the center of the visualization, the more relevant it is in the context of our corpus. In other words, topics situated near the center are more prominent across our dataset.</li>
+            <li><b>Prevalence:</b> Conversely, topics closer to the edges of the chart are less prevalent in our corpus. Their position reflects their lower occurrence in the overall analysis.</li>
+          </ol>
+          <p>By understanding the spatial distribution of these circles, we gain insights into which topics are central and which are more peripheral in our LDA model. </p>
+          <p>Not only does the spatial arrangement say something about the prominence of the topic. The relative distance between circles in the pyLDAvis chart also give crucial understanding about topic relationships within our corpus. When circles are closely positioned, it signifies that these topics share common themes and exhibit a high degree of similarity in their content. They often co-occur within the same documents, indicating a strong thematic connection. Conversely, when circles are distantly separated, it implies that the corresponding topics are distinct and dissimilar. </p>
+        </div>
     </section>
 
     <section class="hero">
       <div class="container">
-        <h4>Reassessing the Model</h4>
+        <h5>Circle Size (Topic Size)</h5>
         <div class="row">
           <div class="col-lg-12 mt-4 mb-tg-0 order-2 order-lg-1">
         <p>
-          Going back and adjusting the LDA model provides another path to potentially more relevant findings. Changing the settings or "hyperparameters" and configurations that guide how the LDA model learns might help reveal different topics.
-          Important areas to explore include:</p>
-          <ul>
-            <li>Topic Number: Ensuring that the number of topics we’ve set for the model to find is suitable, making sure they’re not too broad or too detailed.</li>
-            <li>Adjusting Settings: Reviewing the alpha and beta settings, which control the distribution of topics in documents and words in topics, might help the model find better topics.
-            </li>
-            <li>Model Testing: Using different measures (like coherence and perplexity) to assess how well the model is performing, making sure it’s stable and effective.</li>
-            </ul>
-          </div>      
+          In pyLDAvis, the size of each circle conveys crucial information about topic importance:
+Circle size in the pyLDAvis chart corresponds to the prevalence of each topic within our corpus. Topics with larger circles are more prevalent, indicating that they play a more significant role in our analysis.
+This size-based representation offers a quick and intuitive means of identifying the topics that dominate our corpus. </p>
+</div>
     </section>
 
     <section class="hero">
       <div class="container">
-        <h4>Trying Other Models and Methods</h4>
+        <h5>Topic-Term Relevance Plot</h5>
         <div class="row">
           <div class="col-lg-12 mt-4 mb-tg-0 order-2 order-lg-1">
         <p>
-          The third possible path is trying out different models or analysis methods. For example, models like Non-Negative Matrix Factorization (NMF) or other approaches like supervised topic models (e.g., labeled LDA) might provide a new way to explore the documents. These alternatives might help find and explore predefined topics by providing the model with some guidance or existing knowledge.</p>
-          <p>In considering these potential paths - rechecking the corpus, adjusting the LDA model, and looking into other methods - we move forward with a curious and rigorous approach. Even though our research ends here, these insights might provide the starting point for future investigations, potentially leading to new discoveries about discussions on accessibility in heritage contexts.</p>
-          </div>      
+          The Topic-Term Relevance Plot is important for better understanding of the individual topics. Each bar represents a term, the height of the bar indicates the term’s relevance to the selected topic. There are 3 parameters/representations that need to be explained:<p>
+        <ol>
+          <li><b>Term Frequency (TF):</b> This shows how many times a specific term appears within a topic. As you can see each bar has a red and a blue part. The red part represents the Term Frequency, the blue bar the overall frequency of that term.</li>
+          <li><b>Term Relevance (TR):</b> This represents the uniqueness of a term within a topic compared to the whole corpus. </li>
+          <li><b>Lambda (λ):</b> Lambda is a parameter that controls the balance between these two. By adjusting the lambda slider (on top of the plot) you can retrieve the more unique terms of the topic. When λ is set to 1, the plot shows terms based solely on their frequency within the topic (TF). As λ decreases, it gives more weight to the uniqueness of terms within the topic (TR). </li>
+        </ol>
+        </div>
     </section>
+
+
 
   </main><!-- End #main -->
 <!-- ======= Footer ======= -->
@@ -165,12 +175,12 @@
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Useful Links</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Our Topic</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Methodology</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Questions</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Visualization</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Our Conclusions</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Team</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#hero">Our Topic</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#method">Methodology</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#faq">Questions</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#portfolio">Visualization</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#cta">Our Conclusions</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html#testimonials">Team</a></li>
           </ul>
         </div>
 
